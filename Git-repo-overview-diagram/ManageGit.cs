@@ -13,6 +13,7 @@ namespace Git_repo_overview_diagram
         const int offset = 200;
         const int yOffset = offset / 2;
         const int shapeWidth = 300;
+        const int shapeHeight = shapeWidth/2;
         List<GitShapes> digram = new List<GitShapes>();
         GitShapes currentShape;
 
@@ -36,7 +37,6 @@ namespace Git_repo_overview_diagram
             //c:/Users/Thamer/Desktop/Git/miniPaint
             using (var repo = new Repository(@"c:/Users/Thamer/Desktop/Git/miniPaint")) 
             {
-
                 var commits = repo.Commits;
                 var branches = repo.Branches;
                 var head = repo.Head;
@@ -60,7 +60,7 @@ namespace Git_repo_overview_diagram
                         if (branch.IsRemote && branch.Tip == commit) 
                         {
                             //currentY -= yOffset - shapeWidth / 2;
-                            currentShape = new BranchDraw("main", currentX, currentY - (yOffset + shapeWidth / 2) * yMultiplier, shapeWidth,shapeWidth/2);
+                            currentShape = new BranchDraw("main", currentX, currentY - (yOffset + shapeHeight) * yMultiplier, shapeWidth, shapeHeight);
                             digram.Add(currentShape);
                             link = new Link(currentX + shapeWidth/ 2, currentY - yOffset, 10, yOffset);
                            
@@ -74,11 +74,11 @@ namespace Git_repo_overview_diagram
                     if (head.Tip == commit)
                     {
                         //currentY -= start.Y - yOffset;
-                        currentShape = new BranchDraw("Head", currentX, currentY-( yOffset  +shapeWidth / 2)*yMultiplier  , shapeWidth, shapeWidth / 2);
+                        currentShape = new BranchDraw("Head", currentX, currentY-( yOffset  + shapeHeight) *yMultiplier  , shapeWidth, shapeHeight);
                         digram.Add(currentShape);
                         //yMultiplier++;
 
-                        link = new Link(currentX + shapeWidth / 2, currentY -(yOffset* yMultiplier + shapeWidth/2)   , 10, yOffset);
+                        link = new Link(currentX + shapeWidth / 2, currentY -(yOffset* yMultiplier + shapeHeight)   , 10, yOffset);
                         digram.Add(link);
                     }
 
