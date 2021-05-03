@@ -43,6 +43,7 @@ namespace Git_repo_overview_diagram
             this.digramPage1.Name = "digramPage1";
             this.digramPage1.Size = new System.Drawing.Size(1894, 1009);
             this.digramPage1.TabIndex = 0;
+            this.digramPage1.Load += new System.EventHandler(this.digramPage1_Load);
             // 
             // Form1
             // 

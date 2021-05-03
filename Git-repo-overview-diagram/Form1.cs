@@ -36,5 +36,10 @@ namespace Git_repo_overview_diagram
         {
             digramPage1.Show();
         }
+
+        private void digramPage1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

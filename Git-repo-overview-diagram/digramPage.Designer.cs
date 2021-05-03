@@ -41,7 +41,7 @@ namespace Git_repo_overview_diagram
             this.drawingBoard.Location = new System.Drawing.Point(0, 0);
             this.drawingBoard.MinimumSize = new System.Drawing.Size(100, 100);
             this.drawingBoard.Name = "drawingBoard";
-            this.drawingBoard.Size = new System.Drawing.Size(3000, 1012);
+            this.drawingBoard.Size = new System.Drawing.Size(3000, 2000);
             this.drawingBoard.TabIndex = 0;
             this.drawingBoard.Paint += new System.Windows.Forms.PaintEventHandler(this.drawingBoard_Paint);
             // 
@@ -54,7 +54,7 @@ namespace Git_repo_overview_diagram
             this.Controls.Add(this.drawingBoard);
             this.MinimumSize = new System.Drawing.Size(720, 480);
             this.Name = "digramPage";
-            this.Size = new System.Drawing.Size(3000, 1012);
+            this.Size = new System.Drawing.Size(3000, 2000);
             this.ResumeLayout(false);
 
         }

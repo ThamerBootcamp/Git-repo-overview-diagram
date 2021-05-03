@@ -4,13 +4,17 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TMShapes;
 
 namespace Git_repo_overview_diagram
 {
-    public abstract class GitShapes : Shape
+    public abstract class GitShapes 
     {
-       
+        public System.Drawing.Rectangle rect;
+        public Brush brush;
+        public Pen pen;
+
+        public abstract void draw(Graphics g, bool isActive = false);
+
     }
     /*
                  Shape cir = new Circle();

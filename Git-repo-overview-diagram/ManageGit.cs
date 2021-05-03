@@ -16,11 +16,13 @@ namespace Git_repo_overview_diagram
         List<GitShapes> digram = new List<GitShapes>();
         GitShapes currentShape;
 
-        Point start = new Point(200, 500);
+        Point start = new Point(200, 700);
         
         public void init()
         {
             int offsetMultiplier = 1;
+            int yMultiplier = 1;
+
             DigramStart startLine = new DigramStart(start.X, start.Y);
             digram.Add(startLine);
 
@@ -28,6 +30,7 @@ namespace Git_repo_overview_diagram
             digram.Add(link);
             
             int currentX = start.X+offset;
+
             //C:\Users\Thamer\source\repos\libgit2sharp_playground
             //C:\Users\Thamer\source\repos\UI-Project
             //c:/Users/Thamer/Desktop/Git/miniPaint
@@ -36,7 +39,7 @@ namespace Git_repo_overview_diagram
 
                 var commits = repo.Commits;
                 var branches = repo.Branches;
-                
+                var head = repo.Head;
 
                 for (int index = commits.Count()-1; index >= 0; index-- ,offsetMultiplier++)
                 {
@@ -45,22 +48,38 @@ namespace Git_repo_overview_diagram
                         currentX = start.X + offset;
                     else
                         currentX += shapeWidth + offset; 
-                
-                    currentShape = new CommitDraw(commit.Id.ToString().Substring(0, 7), currentX, start.Y - (startLine.rect.Height / 2), shapeWidth, shapeWidth);
+                   
+                    var currentY = start.Y  - startLine.rect.Height / 2;
+                    //start.Y - (startLine.rect.Height / 2)
+                    currentShape = new CommitDraw(commit.Id.ToString().Substring(0, 7), currentX, currentY, shapeWidth, shapeWidth);
                     digram.Add(currentShape);
 
+                    yMultiplier = 1;
                     foreach (var branch in branches)
                     {
-                        if (branch.Tip == commit) 
+                        if (branch.IsRemote && branch.Tip == commit) 
                         {
-                            currentShape = new BranchDraw("main", currentX, start.Y  - yOffset - shapeWidth/2 - startLine.rect.Height/2, shapeWidth,shapeWidth/2);
+                            //currentY -= yOffset - shapeWidth / 2;
+                            currentShape = new BranchDraw("main", currentX, currentY - (yOffset + shapeWidth / 2) * yMultiplier, shapeWidth,shapeWidth/2);
                             digram.Add(currentShape);
-
-                            link = new Link(currentX+shapeWidth/2 , (start.Y - yOffset - (startLine.rect.Height / 2)), 10, yOffset);
+                            link = new Link(currentX + shapeWidth/ 2, currentY - yOffset, 10, yOffset);
+                           
+                            //currentY-= -yOffset - shapeWidth ;
+                            
                             digram.Add(link);
-
+                            yMultiplier++; 
+                            break;
                         }
+                    }
+                    if (head.Tip == commit)
+                    {
+                        //currentY -= start.Y - yOffset;
+                        currentShape = new BranchDraw("Head", currentX, currentY-( yOffset  +shapeWidth / 2)*yMultiplier  , shapeWidth, shapeWidth / 2);
+                        digram.Add(currentShape);
+                        //yMultiplier++;
 
+                        link = new Link(currentX + shapeWidth / 2, currentY -(yOffset* yMultiplier + shapeWidth/2)   , 10, yOffset);
+                        digram.Add(link);
                     }
 
                     if (!(index == 0))

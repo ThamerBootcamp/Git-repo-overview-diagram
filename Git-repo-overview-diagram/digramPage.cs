@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TMShapes;
 namespace Git_repo_overview_diagram
 {
     public partial class digramPage : UserControl
