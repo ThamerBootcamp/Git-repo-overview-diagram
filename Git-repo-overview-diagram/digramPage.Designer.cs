@@ -37,7 +37,6 @@ namespace Git_repo_overview_diagram
             this.drawingBoard.AutoScroll = true;
             this.drawingBoard.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.drawingBoard.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.drawingBoard.Dock = System.Windows.Forms.DockStyle.Left;
             this.drawingBoard.Location = new System.Drawing.Point(0, 0);
             this.drawingBoard.MinimumSize = new System.Drawing.Size(100, 100);
             this.drawingBoard.Name = "drawingBoard";
