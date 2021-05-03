@@ -12,8 +12,8 @@ namespace Git_repo_overview_diagram
     {
         const int offset = 200;
         const int yOffset = offset / 2;
-        const int shapeWidth = 300;
-        const int shapeHeight = shapeWidth/2;
+        const int shapeWidth = 200;
+        const int shapeHeight = 100;// shapeWidth/2;
         List<GitShapes> digram = new List<GitShapes>();
         GitShapes currentShape;
 
@@ -27,7 +27,7 @@ namespace Git_repo_overview_diagram
             DigramStart startLine = new DigramStart(start.X, start.Y);
             digram.Add(startLine);
 
-            Link link = new Link(start.X, start.Y + (startLine.rect.Height / 2), offset);
+            Link link = new Link(start.X, start.Y + (startLine.rect.Height/2), offset);
             digram.Add(link);
             
             int currentX = start.X+offset;
@@ -49,7 +49,7 @@ namespace Git_repo_overview_diagram
                     else
                         currentX += shapeWidth + offset; 
                    
-                    var currentY = start.Y  - startLine.rect.Height / 2;
+                    var currentY = start.Y - (shapeWidth/2) +startLine.rect.Height/2;
                     //start.Y - (startLine.rect.Height / 2)
                     currentShape = new CommitDraw(commit.Id.ToString().Substring(0, 7), currentX, currentY, shapeWidth, shapeWidth);
                     digram.Add(currentShape);
