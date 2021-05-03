@@ -123,7 +123,7 @@ namespace Git_repo_overview_diagram
         {
             g.DrawRectangle(this.pen, this.rect);
             Font font = new Font("Times New Roman", 12.0f);
-            g.DrawString("Commit: " + name, font, Brushes.Black, new Point(this.rect.Left + this.rect.Width / 8, this.rect.Top+ this.rect.Height/3));
+            g.DrawString( name, font, Brushes.Black, new Point(this.rect.Left + this.rect.Width / 3, this.rect.Top+ this.rect.Height/3));
         }
     }
 }
