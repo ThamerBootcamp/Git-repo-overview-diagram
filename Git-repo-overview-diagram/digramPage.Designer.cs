@@ -35,13 +35,13 @@ namespace Git_repo_overview_diagram
             // drawingBoard
             // 
             this.drawingBoard.AutoScroll = true;
-            this.drawingBoard.AutoSize = true;
             this.drawingBoard.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.drawingBoard.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.drawingBoard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.drawingBoard.Dock = System.Windows.Forms.DockStyle.Left;
             this.drawingBoard.Location = new System.Drawing.Point(0, 0);
+            this.drawingBoard.MinimumSize = new System.Drawing.Size(100, 100);
             this.drawingBoard.Name = "drawingBoard";
-            this.drawingBoard.Size = new System.Drawing.Size(1428, 923);
+            this.drawingBoard.Size = new System.Drawing.Size(3000, 1012);
             this.drawingBoard.TabIndex = 0;
             this.drawingBoard.Paint += new System.Windows.Forms.PaintEventHandler(this.drawingBoard_Paint);
             // 
@@ -50,11 +50,12 @@ namespace Git_repo_overview_diagram
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.drawingBoard);
+            this.MinimumSize = new System.Drawing.Size(720, 480);
             this.Name = "digramPage";
-            this.Size = new System.Drawing.Size(1428, 923);
+            this.Size = new System.Drawing.Size(3000, 1012);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

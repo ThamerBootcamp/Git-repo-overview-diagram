@@ -28,7 +28,9 @@ namespace Git_repo_overview_diagram
             digram.Add(link);
             
             int currentX = start.X+offset;
-            
+            //C:\Users\Thamer\source\repos\libgit2sharp_playground
+            //C:\Users\Thamer\source\repos\UI-Project
+            //c:/Users/Thamer/Desktop/Git/miniPaint
             using (var repo = new Repository(@"c:/Users/Thamer/Desktop/Git/miniPaint")) 
             {
 

@@ -34,11 +34,14 @@ namespace Git_repo_overview_diagram
             // 
             // digramPage1
             // 
+            this.digramPage1.AutoScroll = true;
+            this.digramPage1.AutoSize = true;
             this.digramPage1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.digramPage1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.digramPage1.Location = new System.Drawing.Point(0, 0);
+            this.digramPage1.MinimumSize = new System.Drawing.Size(720, 480);
             this.digramPage1.Name = "digramPage1";
-            this.digramPage1.Size = new System.Drawing.Size(1509, 912);
+            this.digramPage1.Size = new System.Drawing.Size(1894, 1009);
             this.digramPage1.TabIndex = 0;
             // 
             // Form1
@@ -46,12 +49,14 @@ namespace Git_repo_overview_diagram
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1509, 912);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1894, 1009);
             this.Controls.Add(this.digramPage1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
